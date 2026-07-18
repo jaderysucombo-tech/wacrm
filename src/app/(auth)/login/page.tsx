@@ -71,18 +71,18 @@ function LoginPageInner() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <Card className="w-full max-w-md border-border bg-card">
-        <CardHeader className="items-center text-center">
-          <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+          <CardHeader className="items-center text-center py-0 md:py-1 space-y-1">
+          <div className="mb-0 mx-auto flex h-48 w-48 items-center justify-center rounded-3xl bg-transparent md:h-56 md:w-56">
             {inviteToken ? (
-              <UsersRound className="h-6 w-6 text-primary" />
+              <UsersRound className="h-28 w-28 text-primary md:h-32 md:w-32" />
             ) : (
-              <MessageSquare className="h-6 w-6 text-primary" />
+              <img src="/logo2.svg" alt="Logo" className="h-48 w-48 object-contain md:h-56 md:w-56" />
             )}
           </div>
-          <CardTitle className="text-xl text-foreground">
+          <CardTitle className="text-xl text-foreground leading-tight">
             {inviteToken ? t('titleAccept') : t('titleWelcome')}
           </CardTitle>
-          <CardDescription className="text-muted-foreground">
+          <CardDescription className="text-sm text-muted-foreground">
             {inviteToken
               ? t('descAccept')
               : t('descWelcome')}

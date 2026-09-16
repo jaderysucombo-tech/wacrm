@@ -5,7 +5,7 @@
     "descAccept": "Inicia sesión y te llevaremos a la invitación.",
     "descWelcome": "Inicia sesión en tu cuenta",
     "emailLabel": "Correo electrónico",
-    "emailPlaceholder": "you@example.com",
+    "emailPlaceholder": "tu@ejemplo.com",
     "passwordLabel": "Contraseña",
     "forgotPassword": "¿Olvidaste tu contraseña?",
     "passwordPlaceholder": "Ingresa tu contraseña",
@@ -57,6 +57,9 @@
     "menuProfile": "Perfil",
     "menuSettings": "Configuración",
     "menuSignOut": "Cerrar sesión"
+  },
+  "Common": {
+    "close": "Cerrar"
   },
   "ModeToggle": {
     "switchMode": "Cambiar al modo {mode}"
@@ -176,6 +179,7 @@
       "today": "Hoy",
       "yesterday": "Ayer",
       "customer": "Cliente",
+      "you": "Tú",
       "unknown": "Desconocido",
       "sendFailed": "Error al enviar: {reason}",
       "sendTemplateFailed": "Error al enviar la plantilla: {reason}",
@@ -208,6 +212,7 @@
       "sendTemplate": "Enviar plantilla",
       "aiNotConfigured": "La IA aún no está configurada; actívala en Configuración → Asistente de IA.",
       "draftFailed": "No se pudo redactar una respuesta.",
+      "uploadFailed": "Error al subir.",
       "draftEmpty": "El asistente no devolvió una respuesta.",
       "aiUnreachable": "No se pudo conectar con el asistente de IA.",
       "recordingTooLong": "La grabación es demasiado larga (más de 16 MB).",
@@ -291,6 +296,9 @@
       "bodyValuePlaceholder": "Valor para {val}",
       "urlSuffixValuePlaceholder": "Valor del sufijo de la URL",
       "finalUrl": "URL final: {url}",
+      "headerLabel": "Encabezado {val}",
+      "bodyLabel": "Cuerpo {val}",
+      "urlButtonLabel": "Botón URL \"{text}\" — valor para {val}",
       "back": "Atrás",
       "cancel": "Cancelar",
       "send": "Enviar plantilla"
@@ -650,6 +658,9 @@
       "broadcastInProgress": "Difusión en curso",
       "retry": "Reintentar"
     },
+    "detail": {
+      "funnel": "Embudo"
+    },
     "status": {
       "draft": "Borrador",
       "scheduled": "Programada",
@@ -772,6 +783,9 @@
         "errorCsvMissingPhone": "El CSV debe tener una columna 'phone'.",
         "audienceSummary": "Resumen de la audiencia",
         "calculating": "Calculando…"
+      ,
+        "estimatedRecipients": "destinatarios estimados",
+        "noSelection": "Selecciona un tipo de audiencia para ver la estimación."
       },
       "personalize": {
         "title": "Personalizar variables",
@@ -1002,6 +1016,12 @@
         "select": "Selecciona una plantilla…",
         "unknown": "{name} ({lang}): no está en la lista de aprobadas",
         "unknownLang": "desconocido"
+      ,
+      "categories": {
+        "Marketing": "Marketing",
+        "Utility": "Utilidad",
+        "Authentication": "Autenticación"
+      }
       },
       "branches": {
         "yes": "Sí",
@@ -1082,6 +1102,17 @@
       "createDesc": "Empieza desde una plantilla o desde cero.",
       "startTemplate": "Empezar desde una plantilla",
       "nodeCount": "{count} {count, plural, =1 {nodo} other {nodos}}",
+      "templates": {
+        "welcome_menu": {
+          "description": "Saluda a los clientes que escriben una palabra clave y dirígelos al agente correcto según si son nuevos o ya existen."
+        },
+        "faq_bot": {
+          "description": "Responde automáticamente preguntas frecuentes: el cliente elige un tema de la lista y el bot da la respuesta adecuada."
+        },
+        "lead_capture": {
+          "description": "Saluda a los contactos nuevos, pide nombre, correo y empresa, y deriva la información al equipo de ventas."
+        }
+      },
       "startBlank": "O empieza en blanco",
       "placeholderName": "p. ej. Menú de bienvenida",
       "cancel": "Cancelar",
@@ -1138,6 +1169,9 @@
       "nodeKeyLabel": "Clave del nodo (identificador interno; mantenla estable para las analíticas)",
       "replyIdsHint": "Los IDs de respuesta de cada opción se muestran arriba. WhatsApp los devuelve cuando un cliente toca; normalmente no necesitas tocarlos.",
       "badgeEntry": "Entrada",
+      "slotNext": "Siguiente",
+      "slotTrue": "Sí",
+      "slotFalse": "No",
       "noNodesYet": "Aún no hay nodos.",
       "deleteNode": "Eliminar nodo",
       "canvasView": "Lienzo",
@@ -1660,6 +1694,20 @@
       "members": "Miembros del equipo",
       "api": "Claves de API"
     },
+    "quickRepliesDesc": "Fragmentos reutilizables — texto plano o un mensaje interactivo guardado — que los agentes pueden insertar desde el compositor de la bandeja de entrada.",
+    "newQuickReply": "Nueva respuesta rápida",
+    "editQuickReply": "Editar respuesta rápida",
+    "giveQuickReplyName": "Ponle un nombre a la respuesta rápida.",
+    "quickReplyCreated": "Respuesta rápida creada.",
+    "quickReplyUpdated": "Respuesta rápida actualizada.",
+    "quickReplySaveError": "No se pudo guardar la respuesta rápida.",
+    "deleteQuickReplyConfirm": "¿Eliminar esta respuesta rápida?",
+    "quickReplyDeleteError": "No se pudo eliminar la respuesta rápida.",
+    "nameLabel": "Nombre",
+    "placeholderBusinessHours": "p. ej. Horario de atención",
+    "kindText": "Texto",
+    "kindInteractive": "Interactivo",
+    "placeholderMessageText": "El texto del mensaje a insertar",
     "groups": {
       "account": "Cuenta",
       "workspace": "Espacio de trabajo"

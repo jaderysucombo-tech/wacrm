@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
@@ -186,14 +187,18 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
       >
         {/* Logo row. On mobile we put a close button here; on desktop the
             close button is hidden since the sidebar is always-visible. */}
-        <div className="flex h-14 shrink-0 items-center justify-between gap-2 border-b border-border px-4">
-          <Link href="/dashboard" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <MessageSquare className="h-4 w-4" />
+        <div className="flex h-14 shrink-0 items-center justify-between gap-2 border-b border-border px-3 sm:px-4">
+          <Link href="/dashboard" className="flex min-w-0 items-center overflow-hidden">
+            <div className="flex h-9 w-[100px] items-center justify-center overflow-hidden rounded-md bg-transparent sm:h-10 sm:w-[130px] lg:w-[150px]">
+              <Image
+                src="/logo-andala.png"
+                alt={t("title")}
+                width={220}
+                height={44}
+                priority
+                className="h-7 w-auto max-w-[94px] object-contain sm:h-8 sm:max-w-[118px] lg:h-9 lg:max-w-[136px]"
+              />
             </div>
-            <span className="text-sm font-semibold text-foreground">
-              {t("title")}
-            </span>
           </Link>
           <button
             type="button"

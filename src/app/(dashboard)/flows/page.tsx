@@ -277,7 +277,7 @@ export default function FlowsPage() {
                         {template.name}
                       </span>
                       <span className="text-xs leading-relaxed text-muted-foreground">
-                        {template.description}
+                        {t(`templates.${template.slug}.description`)}
                       </span>
                       <span className="mt-auto border-t border-border pt-2 text-[11px] text-muted-foreground">
                         {t("nodeCount", { count: template.node_count })}

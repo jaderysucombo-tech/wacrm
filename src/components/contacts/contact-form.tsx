@@ -47,6 +47,7 @@ export function ContactForm({
   onViewExisting,
 }: ContactFormProps) {
   const t = useTranslations('Contacts.form');
+  const tDetail = useTranslations('Contacts.detailView');
   const supabase = createClient();
   const { accountId } = useAuth();
   const isEdit = !!contact;
@@ -144,8 +145,16 @@ export function ContactForm({
         data: { session },
       } = await supabase.auth.getSession();
       const user = session?.user;
-      if (!user) throw new Error('Not authenticated');
-      if (!accountId) throw new Error('Your profile is not linked to an account.');
+      if (!user) {
+        toast.error(tDetail('toastNotAuthenticated'));
+        setSaving(false);
+        return;
+      }
+      if (!accountId) {
+        toast.error(tDetail('toastNoAccount'));
+        setSaving(false);
+        return;
+      }
 
       let contactId = contact?.id;
 

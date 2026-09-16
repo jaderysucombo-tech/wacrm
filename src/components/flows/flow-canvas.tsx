@@ -214,29 +214,38 @@ function FlowNodeCard({ data, selected }: NodeProps) {
 
       {isMultiSlot && (
         <div className="border-border mt-2.5 flex flex-col gap-1 border-t pt-2.5">
-          {slots.map((slot) => (
-            <div
-              key={slot.id}
-              className="text-muted-foreground relative flex items-center justify-between gap-2 rounded px-1 py-0.5 text-[11px]"
-            >
-              <span className="truncate" title={slot.label}>
-                {slot.label}
-              </span>
-              <Handle
-                type="source"
-                id={slot.id}
-                position={Position.Right}
-                style={{
-                  borderColor: slotColor(node.node_type, slot.id, c.solid),
-                }}
-                // Override default absolute positioning so the handle
-                // sits flush with the right edge of the card instead
-                // of floating at vertical center. The negative offset
-                // matches the card's px-3 + the handle's own radius.
-                className="!bg-card !relative !top-auto !right-auto !h-2.5 !w-2.5 !translate-x-[14px] !transform-none !border-2"
-              />
-            </div>
-          ))}
+          {slots.map((slot) => {
+            const displayLabel =
+              slot.id === 'next'
+                ? t('slotNext')
+                : slot.id === 'true'
+                ? t('slotTrue')
+                : slot.id === 'false'
+                ? t('slotFalse')
+                : slot.label;
+            return (
+              <div
+                key={slot.id}
+                className="text-muted-foreground relative flex items-center justify-between gap-2 rounded px-1 py-0.5 text-[11px]"
+              >
+                <span className="truncate" title={displayLabel}>
+                  {displayLabel}
+                </span>
+                {/* Position the handle flush with the right edge rather than
+                    vertically centered; the translate offset matches the
+                    card padding so the handle visually sits outside. */}
+                <Handle
+                  type="source"
+                  id={slot.id}
+                  position={Position.Right}
+                  style={{
+                    borderColor: slotColor(node.node_type, slot.id, c.solid),
+                  }}
+                  className="!bg-card !relative !top-auto !right-auto !h-2.5 !w-2.5 !translate-x-[14px] !transform-none !border-2"
+                />
+              </div>
+            );
+          })}
         </div>
       )}
 

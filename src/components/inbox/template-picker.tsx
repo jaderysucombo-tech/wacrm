@@ -44,17 +44,6 @@ function renderBodyPreview(body: string, params: string[]): string {
   });
 }
 
-interface UrlButtonSlot {
-  index: number;
-  text: string;
-  url: string;
-}
-
-/**
- * Templates may need values for: body variables, a text-header
- * variable, and per-URL-button suffixes. Collect them all so the
- * send-message path doesn't 400 on missing parameters.
- */
 function collectVariableSlots(template: MessageTemplate): {
   bodyVars: number[];
   headerVarCount: number;
@@ -72,6 +61,12 @@ function collectVariableSlots(template: MessageTemplate): {
     }
   });
   return { bodyVars, headerVarCount, urlButtonSlots };
+}
+
+interface UrlButtonSlot {
+  index: number;
+  text: string;
+  url: string;
 }
 
 export function TemplatePicker({
@@ -264,7 +259,7 @@ export function TemplatePicker({
             {slots && slots.headerVarCount > 0 && (
               <div className="space-y-1">
                 <Label className="text-xs text-popover-foreground">
-                  {`Header {{1}}`}
+                  {t("headerLabel", { val: "{{1}}" })}
                 </Label>
                 <Input
                   value={headerText}
@@ -276,7 +271,7 @@ export function TemplatePicker({
             )}
             {slots?.bodyVars.map((v, i) => (
               <div key={v} className="space-y-1">
-                <Label className="text-xs text-popover-foreground">{`Body {{${v}}}`}</Label>
+                <Label className="text-xs text-popover-foreground">{t("bodyLabel", { val: `{{${v}}}` })}</Label>
                 <Input
                   value={params[i] ?? ""}
                   onChange={(e) => {
@@ -292,7 +287,7 @@ export function TemplatePicker({
             {slots?.urlButtonSlots.map((slot) => (
               <div key={slot.index} className="space-y-1">
                 <Label className="text-xs text-popover-foreground">
-                  {`URL button "${slot.text}" — value for `}{`{{1}}`}
+                  {t("urlButtonLabel", { text: slot.text, val: "{{1}}" })}
                 </Label>
                 <Input
                   value={buttonParams[slot.index] ?? ""}

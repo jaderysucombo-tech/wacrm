@@ -732,7 +732,7 @@ export function TemplateManager() {
                         value={cat}
                         className="text-popover-foreground focus:bg-muted focus:text-popover-foreground"
                       >
-                        {cat}
+                        {t(`categories.${cat}`)}
                       </SelectItem>
                     ))}
                   </SelectContent>
